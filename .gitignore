@@ -3,5 +3,5 @@ managed_components/
 sdkconfig
 sdkconfig.old
 main/wifi_credentials.h
-firmware/*.bin
+release_bins/
 .DS_Store

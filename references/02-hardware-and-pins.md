@@ -1,6 +1,6 @@
 # 02 硬件与引脚（以原理图 V1.1 核对）
 
-主控模块 WT0132P4-A1-N16R32（ESP32-P4，16 MB Flash，32 MB PSRAM）。固件里的引脚宏在 `components/bsp/include/bsp_config.h`，
+主控模块 WT0132P4-A1-N16R32（ESP32-P4，16 MB Flash，32 MB PSRAM）。固件里的引脚宏在 `firmware/components/bsp/include/bsp_config.h`，
 下表已与原理图 `D50 MAIN Board V1.1 (2026-08-19)` 逐项核对一致。
 
 | 外设 | 信号 → P4 GPIO |
@@ -24,4 +24,4 @@
 - **V1.1 板没有 EEPROM**（旧的 V01 板才有，固件里仍保留驱动，但自检不检测它）。GPIO39 / 40 / 43 只是测试点。
 - ESP8684 一侧的引脚：MOSI=IO7、MISO=IO2、CLK=IO6、CS=IO10、HANDSHAKE=IO4、DATA_READY=IO5；其 UART0（TXD0/RXD0）只引到测试点 TP42 / TP44，IO9 引到 TP49。
 - USB D+/D-、PSRAM、Flash 相关引脚不要当普通 GPIO 使用。
-- 完整说明见 `docs/hardware_reference.md`。
+- 完整说明见 `references/07-hardware-reference.md`。

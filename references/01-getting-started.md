@@ -15,11 +15,12 @@ source ~/esp/esp-idf-v6.0.2/export.sh
 ## 编译与烧录
 
 ```bash
+cd firmware           # 固件工程在仓库的 firmware/ 目录里
 idf.py build
 ./flash.sh            # Windows 用 python flash.py
 ```
 
-`flash.sh` 会让固件自己进入下载模式（免按 BOOT），烧完自动重启。原理见 `docs/CDC_一键烧录说明.md`。
+`flash.sh` 会让固件自己进入下载模式（免按 BOOT），烧完自动重启。原理见 `firmware/docs/CDC_一键烧录说明.md`。
 
 只改了代码、没动字库等资源时，用 `./flash.sh --app` 只烧应用分区（约 17 秒；完整烧录要 40 秒以上，因为字库 6 MB 每次都重烧）。第一次烧录或改过分区/字库后，仍要完整烧录。
 
@@ -30,4 +31,4 @@ idf.py build
 ## 烧录前先确认
 
 - 确认要写的串口确实是 D50，再执行烧录。
-- 两个固件互不相干：**P4 主固件**（本仓库）和 **ESP8684 从机固件**（`c2_firmware/`，只需烧一次，见 `04-wifi.md`）。
+- 两个固件互不相干：**P4 主固件**（本仓库）和 **ESP8684 从机固件**（`firmware/c2_firmware/`，只需烧一次，见 `04-wifi.md`）。

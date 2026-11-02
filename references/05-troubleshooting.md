@@ -13,14 +13,14 @@
 | 麦克风 | 同上；USB 麦克风占用时不能再读 |
 | 按键旋钮 | 只确认输入任务已启动；真正测试请用户按键，看屏幕右下角"最近输入"文字 |
 | USB | USB 初始化失败；TinyUSB 版本或描述符被改 |
-| Wi-Fi | ① ESP8684 无从机固件（**最常见**）→ 见 `04-wifi.md` 飞线烧录；② SPI 引脚在 `sdkconfig.defaults` 里被改；③ 硬件焊接问题 → 转人工 |
+| Wi-Fi | ① ESP8684 无从机固件（**最常见**）→ 见 `04-wifi.md` 飞线烧录；② SPI 引脚在 `firmware/sdkconfig.defaults` 里被改；③ 硬件焊接问题 → 转人工 |
 
 ## 常见现象
 
 | 现象 | 处理 |
 | --- | --- |
 | 编译报 IDF 版本 / Python 版本错误 | 必须 ESP-IDF v6.0.2；先 `unset IDF_PATH IDF_PYTHON_ENV_PATH` 再 `source export.sh` |
-| 依赖下载失败 | 检查网络；删 `managed_components/` 和 `dependencies.lock` 后重新 `idf.py build` |
+| 依赖下载失败 | 检查网络；在 `firmware/` 里删 `managed_components/` 和 `dependencies.lock` 后重新 `idf.py build` |
 | 找不到串口 / 烧录失败 | 看 `01-getting-started.md` 的端口说明与 BOOT+RST 兜底方法；换数据线（有些线只能充电） |
 | 屏幕不亮 | 先看有没有声音与灯；重烧本仓库固件对照；仍不亮 → 转人工 |
 | 开机一直响 | 本仓库固件已修复；确认固件是本仓库版本，且 `bsp_audio.c` 里 `auto_clear_after_cb = true` 没被删 |

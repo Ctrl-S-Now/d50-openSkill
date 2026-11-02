@@ -13,7 +13,7 @@
 | 正式原理图 | `sch_d50_main_board_v01_20260812.pdf` |
 | 主控模块 | WT0132P4-A1-N16R32 |
 | 主控芯片 | ESP32-P4 v3.2 |
-| 固件硬件映射 | `components/bsp/include/bsp_config.h` |
+| 固件硬件映射 | `firmware/components/bsp/include/bsp_config.h` |
 
 硬件信号的固件映射以当前 `bsp_config.h` 为维护基线。原理图使用外设芯片侧信号名、而源码宏使用 ESP32-P4 方向命名时，本文档会同时标明两种方向。
 
@@ -194,7 +194,7 @@ ES8311 原理图网络按 Codec 引脚命名，源码中的 `DIN`/`DOUT` 宏按 
 | `C2_EN`（复位） | 27 | EN |
 
 以上引脚依据 `SCH_D50_MAIN_Board_V1.1_20260819` 核对，并已在实机上验证（esp-hosted SPI 全双工）。
-P4 侧固件通过 `esp_wifi_remote` + `esp_hosted` 使用该协处理器，配置见 `sdkconfig.defaults` 末尾。
-ESP8684 出厂不一定带 esp-hosted 从机固件；预编译的从机固件和烧录方法见 `c2_firmware/README.md`。
+P4 侧固件通过 `esp_wifi_remote` + `esp_hosted` 使用该协处理器，配置见 `firmware/sdkconfig.defaults` 末尾。
+ESP8684 出厂不一定带 esp-hosted 从机固件；预编译的从机固件和烧录方法见 `firmware/c2_firmware/README.md`。
 
 主板另外预留 ESP8684 UART 测试连接，以及 ESP32-P4 `UART0_TX`/`UART0_RX` 接口；相关串联电阻为预留位时，以实际 BOM 装配状态为准。
