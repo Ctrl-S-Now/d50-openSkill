@@ -1,0 +1,7 @@
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+main/wifi_credentials.h
+firmware/*.bin
+.DS_Store

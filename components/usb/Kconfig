@@ -1,0 +1,17 @@
+menu "D50 USB Device"
+
+    config USB_CDC_AUTO_DOWNLOAD
+        bool "CDC 自动进入下载模式 (识别 esptool DTR/RTS 复位时序)"
+        default y
+        help
+            本板 Type-C 走 ESP32-P4 原生 USB-OTG PHY，运行时由 TinyUSB CDC 占用，
+            esptool 无法像 USB-Serial-JTAG 那样自动复位进下载模式。
+
+            开启后，固件在 CDC 线路状态回调里识别 esptool 的经典复位时序
+            (先 RTS 拉高，随后 DTR 高且 RTS 低)，通过 ROM persist + 强制下载启动位
+            自软复位进入 ROM 下载模式，使 idf.py flash 无需手动按 BOOT。
+
+            注意：idf.py monitor 连接时的复位动作也可能触发此钩子。若只想看日志，
+            请使用 `idf.py monitor --no-reset`，或临时关闭本选项。
+
+endmenu

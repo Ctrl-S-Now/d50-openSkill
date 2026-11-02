@@ -1,0 +1,8 @@
+menu "D50 board support"
+
+config BSP_INPUT_TASK_PRIORITY
+    int "Input task priority"
+    default 5
+    range 1 20
+
+endmenu

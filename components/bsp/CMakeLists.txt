@@ -1,0 +1,25 @@
+idf_component_register(
+    SRCS
+        "bsp.c"
+        "bsp_eeprom.c"
+        "bsp_display.c"
+        "bsp_input.c"
+        "bsp_audio.c"
+        "bsp_amic.c"
+        "bsp_led.c"
+    INCLUDE_DIRS "include"
+    PRIV_REQUIRES
+        esp_adc
+        esp_driver_gpio
+        esp_driver_i2c
+        esp_driver_i2s
+        esp_driver_ledc
+        esp_driver_rmt
+        esp_hw_support
+        esp_lcd
+        esp_lcd_st7701
+        esp_lvgl_adapter
+        esp_rom
+        esp_timer
+        espressif__esp_codec_dev
+)
